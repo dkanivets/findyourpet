@@ -1,0 +1,76 @@
+## User settings
+xcuserdata/
+
+## Xcode 8 and earlier
+*.xcscmblueprint
+*.xccheckout
+build/
+
+### Xcode Patch ###
+# Exclude everything in .xcodeproj, but keep the project definition files
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcshareddata/
+!*.xcodeproj/project.xcworkspace/
+
+# Exclude everything in .xcworkspace, but keep the workspace metadata
+!*.xcworkspace/contents.xcworkspacedata
+
+# Code coverage files
+/*.gcno
+
+## App packaging
+*.ipa
+*.dSYM.zip
+
+## Swift Package Manager Build Artifacts
+.build/
+
+## XCFramework
+# Exclude SinchRTC XCFramework, as it is downloaded on-demand
+SinchRTC.xcframework/
+version.txt
+
+## Build artifacts
+*.o
+*.a
+*.so
+*.dylib
+*.dstore
+*.dll
+*.exe
+*.class
+
+# Additional common macOS files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon files
+_Icon
+.Icon
+
+# macOS-specific metadata files
+.DS_Store
+.metadata/
+.DS_Store?
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+*.lock
+*.bak
+*.orig
+*.rej
+
+# Cache files
+*.cache
+*.npm
+*.yarn
+*.pyc
+*.pyo
+
+## Derived Data
+DerivedData/
