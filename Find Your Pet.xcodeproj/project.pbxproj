@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		C7BF12E02D11EB0800479B27 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C7BF12DF2D11EB0800479B27 /* Kingfisher */; };
+		C7BF12E32D11EB9600479B27 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = C7BF12E22D11EB9600479B27 /* Factory */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		C7BF12C22D11E79200479B27 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7BF12E02D11EB0800479B27 /* Kingfisher in Frameworks */,
+				C7BF12E32D11EB9600479B27 /* Factory in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +119,8 @@
 			);
 			name = "Find Your Pet";
 			packageProductDependencies = (
+				C7BF12DF2D11EB0800479B27 /* Kingfisher */,
+				C7BF12E22D11EB9600479B27 /* Factory */,
 			);
 			productName = "Find Your Pet";
 			productReference = C7BF12B12D11E79000479B27 /* Find Your Pet.app */;
@@ -195,6 +204,10 @@
 			);
 			mainGroup = C7BF12A82D11E79000479B27;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				C7BF12DE2D11EB0800479B27 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				C7BF12E12D11EB9600479B27 /* XCRemoteSwiftPackageReference "Factory" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C7BF12B22D11E79000479B27 /* Products */;
 			projectDirPath = "";
@@ -558,6 +571,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C7BF12DE2D11EB0800479B27 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.1.3;
+			};
+		};
+		C7BF12E12D11EB9600479B27 /* XCRemoteSwiftPackageReference "Factory" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Factory";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.4.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C7BF12DF2D11EB0800479B27 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C7BF12DE2D11EB0800479B27 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		C7BF12E22D11EB9600479B27 /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C7BF12E12D11EB9600479B27 /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C7BF12A92D11E79000479B27 /* Project object */;
 }
