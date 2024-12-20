@@ -24,7 +24,6 @@ class DogsRemoteDataSourceImpl: DogsRemoteDataSource {
         self.apiService = apiService
     }
     
-    // Fetch multiple dog images with optional filters
     func getDogImages(limit: Int = 10, breedID: String? = nil, page: Int? = nil, order: String? = "RAND") -> AnyPublisher<[PetImageModel], NetworkError> {
         var query: [String: Any] = ["limit": limit, "order": order ?? "RAND"]
         
@@ -37,7 +36,7 @@ class DogsRemoteDataSourceImpl: DogsRemoteDataSource {
         
         return apiService.call(
             method: .get,
-            environment: .dogAPI, // Use Dog API base URL
+            environment: .dogAPI,
             path: "/images/search",
             type: [PetImageModel].self,
             body: nil,
@@ -46,11 +45,10 @@ class DogsRemoteDataSourceImpl: DogsRemoteDataSource {
         )
     }
     
-    // Fetch a single image by its ID
     func getImageByID(imageID: String) -> AnyPublisher<PetImageModel, NetworkError> {
         return apiService.call(
             method: .get,
-            environment: .dogAPI, // Use Dog API base URL
+            environment: .dogAPI,
             path: "/images/\(imageID)",
             type: PetImageModel.self,
             body: nil,

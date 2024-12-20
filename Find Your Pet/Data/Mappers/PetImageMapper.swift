@@ -14,9 +14,11 @@ struct PetImageMapper {
             id: content.id,
             url: content.url,
             width: content.width,
-            height: content.height,
-            breeds: content.breeds?.compactMap { BreedMapper.toEntity(from: $0) },
-            categories: content.categories?.compactMap { CategoryMapper.toEntity(from: $0) }
+            height: content.height
+//            ,
+//            breeds: content.breeds?.compactMap { BreedMapper.toEntity(from: $0) },
+//            categories: content.categories?.compactMap { CategoryMapper.toEntity(from: $0)
+//            }
         )
     }
 
@@ -31,9 +33,11 @@ struct PetImageMapper {
             id: content.id,
             url: content.url,
             width: content.width,
-            height: content.height,
-            breeds: content.breeds?.compactMap { BreedMapper.toModel(from: $0) },
-            categories: content.categories?.compactMap { CategoryMapper.toModel(from: $0) }
+            height: content.height
+//            ,
+//            breeds: content.breeds?.compactMap { BreedMapper.toModel(from: $0) },
+//            categories: content.categories?.compactMap { CategoryMapper.toModel(from: $0)
+//            }
         )
     }
 }

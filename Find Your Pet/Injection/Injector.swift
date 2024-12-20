@@ -48,15 +48,17 @@ extension Container {
     var catViewModel: Factory<CatViewModel> {
         Factory(self) {
             CatViewModel(
-                fetchCatImagesUseCase: self.fetchCatImagesUseCase()
+                fetchCatImagesUseCase: self.fetchCatImagesUseCase(),
+                fetchSingleCatImageUseCase: self.fetchSingleCatImageUseCase()
             )
         }
     }
-    
+
     var dogViewModel: Factory<DogViewModel> {
         Factory(self) {
             DogViewModel(
-                fetchDogImagesUseCase: self.fetchDogImagesUseCase()
+                fetchDogImagesUseCase: self.fetchDogImagesUseCase(),
+                fetchSingleDogImageUseCase: self.fetchSingleDogImageUseCase()
             )
         }
     }

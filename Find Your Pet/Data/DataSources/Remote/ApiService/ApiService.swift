@@ -33,11 +33,25 @@ enum ApiEnvironment {
 
 // MARK: - NetworkError
 
-enum NetworkError: Error {
+enum NetworkError: Error, Equatable {
     case invalidURL
     case requestFailed
     case decodingFailed
     case unknown(Error)
+
+    static func == (lhs: NetworkError, rhs: NetworkError) -> Bool {
+        switch (lhs, rhs) {
+        case (.invalidURL, .invalidURL),
+             (.requestFailed, .requestFailed),
+             (.decodingFailed, .decodingFailed):
+            return true
+        case let (.unknown(lhsError), .unknown(rhsError)):
+            return (lhsError as NSError).domain == (rhsError as NSError).domain &&
+                   (lhsError as NSError).code == (rhsError as NSError).code
+        default:
+            return false
+        }
+    }
 }
 
 // MARK: - ApiService Protocol

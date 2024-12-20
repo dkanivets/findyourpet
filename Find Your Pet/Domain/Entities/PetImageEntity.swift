@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct PetImageEntity: Identifiable {
+struct PetImageEntity: Identifiable, Equatable {
     let id: String
     let url: String
     let width: Int
     let height: Int
-    let breeds: [BreedEntity]?
-    let categories: [CategoryEntity]?
+//    let breeds: [BreedEntity]?
+//    let categories: [CategoryEntity]?
 }

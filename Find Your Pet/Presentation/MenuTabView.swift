@@ -6,25 +6,28 @@
 //
 
 import SwiftUI
-import Factory
 
 struct MainTabView: View {
-    @StateObject private var catViewModel = Container.shared.catViewModel()
-    @StateObject private var dogViewModel = Container.shared.dogViewModel()
-    
+    init() {
+        let appearance = UITabBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor.systemGray6
+        UITabBar.appearance().standardAppearance = appearance
+        UITabBar.appearance().scrollEdgeAppearance = appearance
+    }
+
     var body: some View {
         TabView {
-            // Cats Tab
-            CatView(viewModel: catViewModel)
+            CatView()
                 .tabItem {
                     Label("Cats", systemImage: "pawprint.fill")
                 }
-            
-            // Dogs Tab
-            DogView(viewModel: dogViewModel)
+
+            DogView()
                 .tabItem {
                     Label("Dogs", systemImage: "dog.fill")
                 }
         }
+        .accentColor(.blue)
     }
 }

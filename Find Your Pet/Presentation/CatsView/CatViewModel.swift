@@ -5,57 +5,37 @@
 //  Created by Dmitry Kanivets on 20.12.2024.
 //
 
-import SwiftUI
 import Combine
+import Foundation
 
-class CatViewModel: ObservableObject {
+class CatViewModel: BaseViewModel {
     private let fetchCatImagesUseCase: FetchCatImagesUseCase
-    @Published var images: [PetImageEntity] = []
-    @Published var searchText: String = ""
-    @Published var isLoading: Bool = false
-    private var isFetchingMore = false // Prevent duplicate loads
+    private let fetchSingleCatImageUseCase: FetchSingleCatImageUseCase
 
-    private var page = 1
+    @Published var selectedImageDetails: PetImageEntity? = nil
+
     private var cancellables = Set<AnyCancellable>()
-    
-    init(fetchCatImagesUseCase: FetchCatImagesUseCase) {
+
+    init(fetchCatImagesUseCase: FetchCatImagesUseCase, fetchSingleCatImageUseCase: FetchSingleCatImageUseCase) {
         self.fetchCatImagesUseCase = fetchCatImagesUseCase
+        self.fetchSingleCatImageUseCase = fetchSingleCatImageUseCase
+        super.init()
         fetchRandomImages()
     }
-    
-    func fetchRandomImages() {
-        resetPagination()
-        loadImages()
+
+    override func fetchImages(limit: Int, breedID: String?, page: Int) -> AnyPublisher<[PetImageEntity], NetworkError> {
+        fetchCatImagesUseCase.call(limit: limit, breedID: breedID, page: page, order: "ASC")
     }
-    
-    func searchByBreed() {
-        resetPagination()
-        loadImages()
-    }
-    
-    func loadMoreImages() {
-        guard !isFetchingMore && !isLoading else { return } // Prevent multiple triggers
-        isFetchingMore = true
-        page += 1
-        loadImages()
-    }
-    
-    private func resetPagination() {
-        page = 1
-        images.removeAll()
-    }
-    
-    private func loadImages() {
+
+    func fetchDetails(for imageID: String) {
         isLoading = true
-        fetchCatImagesUseCase
-            .call(limit: 20, breedID: searchText.isEmpty ? nil : searchText, page: page, order: "ASC")
+        fetchSingleCatImageUseCase.call(imageID: imageID)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 self?.isLoading = false
-                self?.isFetchingMore = false
-            } receiveValue: { [weak self] newImages in
-                self?.images.append(contentsOf: newImages)
-                self?.isFetchingMore = false
+            } receiveValue: { [weak self] imageDetails in
+                self?.selectedImageDetails = imageDetails
+                self?.isLoading = false
             }
             .store(in: &cancellables)
     }

@@ -5,52 +5,36 @@
 //  Created by Dmitry Kanivets on 20.12.2024.
 //
 
-import SwiftUI
 import Combine
+import Foundation
 
-class DogViewModel: ObservableObject {
+class DogViewModel: BaseViewModel {
     private let fetchDogImagesUseCase: FetchDogImagesUseCase
-    @Published var images: [PetImageEntity] = []
-    @Published var searchText: String = ""
-    @Published var isLoading: Bool = false
+    private let fetchSingleDogImageUseCase: FetchSingleDogImageUseCase
 
-    private var page = 1
+    @Published var selectedImageDetails: PetImageEntity? = nil
     private var cancellables = Set<AnyCancellable>()
-    
-    init(fetchDogImagesUseCase: FetchDogImagesUseCase) {
+
+    init(fetchDogImagesUseCase: FetchDogImagesUseCase, fetchSingleDogImageUseCase: FetchSingleDogImageUseCase) {
         self.fetchDogImagesUseCase = fetchDogImagesUseCase
+        self.fetchSingleDogImageUseCase = fetchSingleDogImageUseCase
+        super.init()
         fetchRandomImages()
     }
-    
-    func fetchRandomImages() {
-        resetPagination()
-        loadImages()
+
+    override func fetchImages(limit: Int, breedID: String?, page: Int) -> AnyPublisher<[PetImageEntity], NetworkError> {
+        fetchDogImagesUseCase.call(limit: limit, breedID: breedID, page: page, order: "ASC")
     }
-    
-    func searchByBreed() {
-        resetPagination()
-        loadImages()
-    }
-    
-    func loadMoreImages() {
-        page += 1
-        loadImages()
-    }
-    
-    private func resetPagination() {
-        page = 1
-        images.removeAll()
-    }
-    
-    private func loadImages() {
+
+    func fetchDetails(for imageID: String) {
         isLoading = true
-        fetchDogImagesUseCase
-            .call(limit: 20, breedID: searchText.isEmpty ? nil : searchText, page: page, order: "ASC")
+        fetchSingleDogImageUseCase.call(imageID: imageID)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 self?.isLoading = false
-            } receiveValue: { [weak self] newImages in
-                self?.images.append(contentsOf: newImages)
+            } receiveValue: { [weak self] imageDetails in
+                self?.selectedImageDetails = imageDetails
+                self?.isLoading = false
             }
             .store(in: &cancellables)
     }

@@ -36,9 +36,13 @@
 		C7BF13792D15AC2500479B27 /* CategoryMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BF13782D15AC2500479B27 /* CategoryMapper.swift */; };
 		C7BF13802D15AFC300479B27 /* DogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BF137E2D15AFC300479B27 /* DogViewModel.swift */; };
 		C7BF13822D15AFCA00479B27 /* CatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BF13812D15AFCA00479B27 /* CatViewModel.swift */; };
-		C7BF13852D15B00F00479B27 /* CatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BF13842D15B00F00479B27 /* CatView.swift */; };
 		C7BF13872D15B01E00479B27 /* MenuTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BF13862D15B01E00479B27 /* MenuTabView.swift */; };
-		C7BF13892D15B0ED00479B27 /* DogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BF13882D15B0ED00479B27 /* DogView.swift */; };
+		C7BF13892D15B0ED00479B27 /* SearchablePhotoGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BF13882D15B0ED00479B27 /* SearchablePhotoGrid.swift */; };
+		C7BF138B2D15E24E00479B27 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BF138A2D15E24E00479B27 /* BaseViewModel.swift */; };
+		C7BF138D2D15E2E800479B27 /* FullScreenImagePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BF138C2D15E2E800479B27 /* FullScreenImagePreview.swift */; };
+		C7BF138F2D15E9FB00479B27 /* CatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BF138E2D15E9FB00479B27 /* CatView.swift */; };
+		C7BF13912D15EA0800479B27 /* DogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BF13902D15EA0800479B27 /* DogView.swift */; };
+		C7BF13932D15F74200479B27 /* View+Extenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BF13922D15F74200479B27 /* View+Extenstions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,9 +93,13 @@
 		C7BF13782D15AC2500479B27 /* CategoryMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryMapper.swift; sourceTree = "<group>"; };
 		C7BF137E2D15AFC300479B27 /* DogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogViewModel.swift; sourceTree = "<group>"; };
 		C7BF13812D15AFCA00479B27 /* CatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatViewModel.swift; sourceTree = "<group>"; };
-		C7BF13842D15B00F00479B27 /* CatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatView.swift; sourceTree = "<group>"; };
 		C7BF13862D15B01E00479B27 /* MenuTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTabView.swift; sourceTree = "<group>"; };
-		C7BF13882D15B0ED00479B27 /* DogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogView.swift; sourceTree = "<group>"; };
+		C7BF13882D15B0ED00479B27 /* SearchablePhotoGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchablePhotoGrid.swift; sourceTree = "<group>"; };
+		C7BF138A2D15E24E00479B27 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		C7BF138C2D15E2E800479B27 /* FullScreenImagePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImagePreview.swift; sourceTree = "<group>"; };
+		C7BF138E2D15E9FB00479B27 /* CatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatView.swift; sourceTree = "<group>"; };
+		C7BF13902D15EA0800479B27 /* DogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogView.swift; sourceTree = "<group>"; };
+		C7BF13922D15F74200479B27 /* View+Extenstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extenstions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -252,6 +260,7 @@
 				C7BF13452D155F1E00479B27 /* Data */,
 				C7BF13492D155F1E00479B27 /* Domain */,
 				C7BF137C2D15AFAC00479B27 /* Presentation */,
+				C7BF13922D15F74200479B27 /* View+Extenstions.swift */,
 				C7BF134D2D155F1E00479B27 /* Preview Content */,
 				C7BF134E2D155F1E00479B27 /* Assets.xcassets */,
 				C7BF134F2D155F1E00479B27 /* ContentView.swift */,
@@ -294,9 +303,12 @@
 		C7BF137C2D15AFAC00479B27 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				C7BF138A2D15E24E00479B27 /* BaseViewModel.swift */,
+				C7BF13862D15B01E00479B27 /* MenuTabView.swift */,
+				C7BF13882D15B0ED00479B27 /* SearchablePhotoGrid.swift */,
+				C7BF138C2D15E2E800479B27 /* FullScreenImagePreview.swift */,
 				C7BF137F2D15AFC300479B27 /* DogsView */,
 				C7BF13832D15AFCF00479B27 /* CatsView */,
-				C7BF13862D15B01E00479B27 /* MenuTabView.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -305,7 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				C7BF137E2D15AFC300479B27 /* DogViewModel.swift */,
-				C7BF13882D15B0ED00479B27 /* DogView.swift */,
+				C7BF13902D15EA0800479B27 /* DogView.swift */,
 			);
 			path = DogsView;
 			sourceTree = "<group>";
@@ -313,8 +325,8 @@
 		C7BF13832D15AFCF00479B27 /* CatsView */ = {
 			isa = PBXGroup;
 			children = (
-				C7BF13842D15B00F00479B27 /* CatView.swift */,
 				C7BF13812D15AFCA00479B27 /* CatViewModel.swift */,
+				C7BF138E2D15E9FB00479B27 /* CatView.swift */,
 			);
 			path = CatsView;
 			sourceTree = "<group>";
@@ -471,6 +483,7 @@
 				C7BF13672D15A2AA00479B27 /* PetImageMapper.swift in Sources */,
 				C7BF13602D15A03400479B27 /* DogsRemoteDataSource.swift in Sources */,
 				C7BF13772D15AB3300479B27 /* CategoryEntity.swift in Sources */,
+				C7BF138D2D15E2E800479B27 /* FullScreenImagePreview.swift in Sources */,
 				C7BF13802D15AFC300479B27 /* DogViewModel.swift in Sources */,
 				C7BF13542D155F1E00479B27 /* ApiService.swift in Sources */,
 				C7BF13692D15A2BC00479B27 /* BreedMapper.swift in Sources */,
@@ -483,19 +496,22 @@
 				C7BF13752D15AB1200479B27 /* BreedEntity.swift in Sources */,
 				C7BF13642D15A26600479B27 /* DogsRepositoryImp.swift in Sources */,
 				C7BF13582D155F1E00479B27 /* PetImageModel.swift in Sources */,
+				C7BF13912D15EA0800479B27 /* DogView.swift in Sources */,
 				C7BF13592D155F1E00479B27 /* CatsRepositoryImp.swift in Sources */,
 				C7BF13712D15A9EB00479B27 /* FetchDogImagesUseCase.swift in Sources */,
 				C7BF135A2D155F1E00479B27 /* CatsRepository.swift in Sources */,
 				C7BF135B2D155F1E00479B27 /* FetchCatImagesUseCase.swift in Sources */,
 				C7BF13732D15A9FB00479B27 /* FetchSingleDogImageUseCase.swift in Sources */,
 				C7BF13872D15B01E00479B27 /* MenuTabView.swift in Sources */,
-				C7BF13892D15B0ED00479B27 /* DogView.swift in Sources */,
+				C7BF13892D15B0ED00479B27 /* SearchablePhotoGrid.swift in Sources */,
 				C7BF135C2D155F1E00479B27 /* Injector.swift in Sources */,
+				C7BF138B2D15E24E00479B27 /* BaseViewModel.swift in Sources */,
 				C7BF135D2D155F1E00479B27 /* ContentView.swift in Sources */,
+				C7BF13932D15F74200479B27 /* View+Extenstions.swift in Sources */,
 				C7BF13622D15A1A100479B27 /* DogsRepository.swift in Sources */,
 				C7BF136F2D15A9D300479B27 /* FetchSingleCatImageUseCase.swift in Sources */,
-				C7BF13852D15B00F00479B27 /* CatView.swift in Sources */,
 				C7BF135E2D155F1E00479B27 /* Find_Your_PetApp.swift in Sources */,
+				C7BF138F2D15E9FB00479B27 /* CatView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

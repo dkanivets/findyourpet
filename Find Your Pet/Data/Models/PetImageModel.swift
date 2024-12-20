@@ -12,6 +12,6 @@ struct PetImageModel: Decodable {
     let url: String
     let width: Int
     let height: Int
-    let breeds: [BreedModel]?
-    let categories: [CategoryModel]?
+//    let breeds: [BreedModel]?
+//    let categories: [CategoryModel]?
 }
